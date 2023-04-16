@@ -1,6 +1,9 @@
 package net.itosimple.twoif;
 
 import com.mojang.logging.LogUtils;
+import net.itosimple.twoif.item.ModCreativeModeTabs;
+import net.itosimple.twoif.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -22,6 +25,8 @@ public class TWOIF {
     public TWOIF() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         
@@ -33,6 +38,14 @@ public class TWOIF {
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if(event.getTab() == ModCreativeModeTabs.PLANETOS_ITEMS) {
+            event.accept(ModItems.PIG_IRON);
+            event.accept(ModItems.STEEL_INGOT);
+            event.accept(ModItems.RUBY);
+            event.accept(ModItems.GOLD_CHAIN);
+            event.accept(ModItems.CHAINMAIL);
+            event.accept(ModItems.GOLD_CHAINMAIL);
+        }
         
     }
 
