@@ -1,6 +1,7 @@
 package net.itosimple.twoif;
 
 import com.mojang.logging.LogUtils;
+import net.itosimple.twoif.block.ModBlocks;
 import net.itosimple.twoif.item.ModCreativeModeTabs;
 import net.itosimple.twoif.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -26,15 +27,16 @@ public class TWOIF {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-        
+
         modEventBus.addListener(this::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        
+
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
@@ -45,17 +47,23 @@ public class TWOIF {
             event.accept(ModItems.GOLD_CHAIN);
             event.accept(ModItems.CHAINMAIL);
             event.accept(ModItems.GOLD_CHAINMAIL);
+            event.accept(ModItems.KRAKEN_TENTACLE);
         }
-        
-    }
+        if(event.getTab() == ModCreativeModeTabs.PLANETOS_BLOCKS){
+            event.accept(ModBlocks.RUBY_BLOCK);
+            event.accept(ModBlocks.RUBY_ORE);
+            event.accept(ModBlocks.DEEPSLATE_RUBY_ORE);
+            event.accept(ModBlocks.STEEL_BLOCK);
+            event.accept(ModBlocks.PIG_IRON_BLOCK);
+
+        }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            
+
         }
     }
-}
+    }}

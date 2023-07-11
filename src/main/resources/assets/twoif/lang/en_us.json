@@ -5,6 +5,14 @@
   "item.twoif.gold_chain": "Gold Chain",
   "item.twoif.chainmail": "Chainmail",
   "item.twoif.gold_chainmail": "Gold Chainmail",
+  "item.twoif.kraken_tentacle": "Kraken Tentacle",
 
-  "creativemodetab.planetos_items": "Planetos Items"
+  "block.twoif.ruby_block": "Ruby Block",
+  "block.twoif.ruby_ore": "Ruby Ore",
+  "block.twoif.deepslate_ruby_ore": "Deepslate Ruby Ore",
+  "block.twoif.steel_block": "Steel Block",
+  "block.twoif.pig_iron_block": "Pig Iron Block",
+
+  "creativemodetab.planetos_items": "Planetos Items",
+  "creativemodetab.planetos_blocks": "Planetos Blocks"
 }

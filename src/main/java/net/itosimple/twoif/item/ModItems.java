@@ -23,6 +23,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject <Item> GOLD_CHAINMAIL = ITEMS.register("gold_chainmail",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject <Item> KRAKEN_TENTACLE = ITEMS.register("kraken_tentacle",
+            () -> new Item(new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {
